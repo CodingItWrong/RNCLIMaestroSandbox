@@ -1,0 +1,34 @@
+name: Maestro
+on: [push]
+
+jobs:
+  test:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - uses: futureware-tech/simulator-action@v2
+        with:
+          model: "iPhone 14"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run app on simulator
+        run: yarn ios
+
+      - uses: dniHze/maestro-test-action@v1
+        with:
+          flow: maestro/smoke-test.yml
+          report: report.xml
