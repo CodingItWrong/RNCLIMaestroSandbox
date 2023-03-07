@@ -25,6 +25,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Install ios-deploy
+        run: npm install -g ios-deploy
+
       - name: Run app on simulator
         run: yarn ios
 
