@@ -95,7 +95,7 @@ android {
 
     namespace "com.rnclimaestrosandbox"
     defaultConfig {
-        applicationId "com.rnclimaestrosandbox"
+        applicationId "com.codingitwrong.RNCLIMaestroSandbox"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
