@@ -50,3 +50,8 @@ jobs:
         with:
           flow: maestro/smoke-test.yml
           report: report.xml
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: maestro-report
+          path: report.xml
