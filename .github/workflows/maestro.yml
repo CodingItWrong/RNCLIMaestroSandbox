@@ -18,18 +18,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - uses: futureware-tech/simulator-action@v2
-        with:
-          model: "iPhone 14"
-
       - name: Install dependencies
         run: yarn install
 
       - name: Install ios-deploy
         run: npm install -g ios-deploy
 
+      - uses: futureware-tech/simulator-action@v2
+        with:
+          model: "iPhone 14"
+
       - name: Run app on simulator
-        run: yarn ios
+        run: npx react-native run-ios
 
       - uses: dniHze/maestro-test-action@v1
         with:
