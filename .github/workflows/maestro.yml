@@ -26,9 +26,6 @@ jobs:
       - name: Install iOS dependencies
         run: npx pod-install
 
-      - name: Install ios-deploy
-        run: npm install -g ios-deploy
-
       - uses: futureware-tech/simulator-action@v2
         with:
           model: "iPhone 14"
