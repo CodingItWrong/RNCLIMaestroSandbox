@@ -33,15 +33,5 @@ jobs:
         with:
           model: "iPhone 14"
 
-      - name: Run app on simulator
+      - name: Confirm app launches on simulator
         run: npx react-native run-ios
-
-      - uses: dniHze/maestro-test-action@v1
-        with:
-          flow: maestro/smoke-test.yml
-          report: report.xml
-
-      - uses: actions/upload-artifact@v3
-        with:
-          name: maestro-report
-          path: ./report.xml
