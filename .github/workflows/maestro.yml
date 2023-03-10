@@ -52,6 +52,8 @@ jobs:
           report: report.xml
 
       - uses: actions/upload-artifact@v3
+        if: ${{ failure() }}
         with:
           name: maestro-report
           path: ./report.xml
+          if-no-files-found: error
