@@ -48,6 +48,7 @@ jobs:
 
       - uses: dniHze/maestro-test-action@v1
         with:
+          version: 1.23.0
           flow: maestro/smoke-test.yml
           report: report.xml
 
