@@ -1,0 +1,6 @@
+# flow.yaml
+
+appId: "org.reactjs.native.example.RNCLIMaestroSandbox"
+---
+- launchApp
+- assertVisible: "Hello, React Native!"
